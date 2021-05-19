@@ -1,12 +1,12 @@
 import React from 'react';
-// import Signup from './component/login/signup';
+import Signup from './component/login/signup';
 import Login from './component/login/login';
 // import SignInOutContainer from "./component/login/index"
 
 const App = () =>{
   return(
     <div>
-      {/* <Signup /> */}
+      <Signup />
       <Login /> 
       {/* <SignInOutContainer /> */}
 
