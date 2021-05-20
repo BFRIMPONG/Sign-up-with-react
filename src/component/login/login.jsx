@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 import {
   Avatar,
   Button,
@@ -46,19 +47,25 @@ const Login = ({ handleChange }) => {
     password:Yup.string().required('Required')
   }) 
   const onSubmit = (values, props) =>{
-    console.log(values)
     setTimeout(()=>{
+      console.log(props);
+      console.log(values);
+      axios.post('https://amalitech-tms.herokuapp.com/auth/login', {
+        email: values.email,
+        password: values.password
+      }).then(response =>{
+        console.log(response)
+      })
       props.resetForm()
       props.setSubmitting(false)
-    }, 3000)
+    }, 1000)
     
-    console.log(props)
   }
   
 
   return (
     <Grid>
-      <Paper style={paperStyle}>
+      <Paper elevation={10} style={paperStyle}>
         <Grid align="center">
           <Avatar style={avatarStyle}>
             <HttpsOutlinedIcon />
@@ -111,7 +118,6 @@ const Login = ({ handleChange }) => {
               ?
                 "Loading":"Sign in"}
               </Button>
-              {console.log(props)}
             </Form>
           )}
         </Formik>
@@ -121,16 +127,6 @@ const Login = ({ handleChange }) => {
           </Link>
         </Typography>
 
-        <Typography>
-          Do you have an account?
-          <Link
-            style={linkStyle}
-            href="#"
-            onClick={() => handleChange("event", 1)}
-          >
-            Sign Up
-          </Link>
-        </Typography>
       </Paper>
     </Grid>
   );

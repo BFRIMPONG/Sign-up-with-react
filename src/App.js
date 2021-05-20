@@ -1,11 +1,12 @@
 import React from 'react';
-import SignInOutContainer from "./component/login/index"
+import Signin from "./component/login/login"
+
 
 const App = () =>{
   return(
     <div>
 
-      <SignInOutContainer />
+      <Signin />
 
     </div>
 
